@@ -1,0 +1,229 @@
+PYGAME
+
+
+
+pygame.draw.rect(sc, (255, 255, 255),(20, 20, 100, 75))
+
+pygame.draw.rect(sc, (64, 128, 255), (150, 20, 100, 75), 8)
+
+pygame.draw.line(sc,WHITE,[10,30],[290,15],3)
+
+pygame.draw.line(sc,WHITE, [10,50],[290,35])
+
+pygame.draw.aaline(sc,WHITE,[10,70],[290,55])
+
+pygame.draw.lines(sc, WHITE, True,[[10, 10], [140, 70],[280, 20]], 2)
+
+pygame.draw.aalines(sc, WHITE, False,[[10, 100], [140, 170],[280, 110]])
+
+pygame.draw.polygon(sc, WHITE, [[150, 10], [180, 50], [90, 90], [30, 30]])
+
+pygame.draw.polygon(sc, WHITE, [[250, 110], [280, 150], [190, 190], [130, 130]])
+
+pygame.draw.aalines(sc, WHITE, True, [[250, 110], [280, 150], [190, 190], [130, 130]])
+
+pygame.draw.circle(sc,YELLOW,(100,100),50)
+
+pygame.draw.circle(sc,PINK,(200,100),50,10)
+
+pygame.draw.ellipse(sc, GREEN, (10, 50, 280, 100))
+
+pygame.draw.arc(sc, WHITE,(10, 50, 280, 100),0, pi)
+
+pygame.draw.arc(sc, PINK,(50, 30, 200, 150),pi, 2*pi, 3)
+
+
+
+pi = 3.14
+
+f1 = pygame.font.Font(None, 36)
+
+text1 = f1.render('Hello Привет', True,(180, 0, 0))
+
+f2 = pygame.font.SysFont('serif', 48)
+
+text2 = f2.render("World Мир", False,(0, 180, 0))
+
+sc.blit(text1, (10, 50))
+
+sc.blit(text2, (10, 100))
+
+pygame.display.update()
+
+
+import pygame as pg
+import sys
+pg.init()
+
+sc = pg.display.set_mode((400, 300))
+
+pg.mixer.music.load('Beethoven.ogg')
+
+pg.mixer.music.play()
+
+sound1 = pg.mixer.Sound('boom.wav')
+
+sound2 = pg.mixer.Sound('one.ogg')
+
+
+while 1:
+
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
+        elif i.type == pg.KEYUP:
+            if i.key == pg.K_1:
+                pg.mixer.music.pause()
+                # pygame.mixer.music.stop()
+            elif i.key == pg.K_2:
+                pg.mixer.music.unpause()
+                # pygame.mixer.music.play()
+                pg.mixer.music.set_volume(0.5)
+            elif i.key == pg.K_3:
+                pg.mixer.music.unpause()
+                # pygame.mixer.music.play()
+                pg.mixer.music.set_volume(1)
+        elif i.type == pg.MOUSEBUTTONUP:
+            if i.button == 1:
+                sound1.play()
+            elif i.button == 3:
+                sound2.play()
+
+    pg.time.delay(20)
+
+
+import pygame as pg
+
+import sys
+
+WHITE = (255, 255, 255)
+
+RED = (225, 0, 50)
+
+GREEN = (0, 225, 0)
+
+BLUE = (0, 0, 225)
+
+sc = pg.display.set_mode((400, 300))
+
+sc.fill(WHITE)
+
+pg.display.update()
+
+
+while 1:
+
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
+        if i.type == pg.MOUSEBUTTONDOWN:
+            if i.button == 1:
+                pg.draw.circle(
+                    sc, RED, i.pos, 20)
+                pg.display.update()
+            elif i.button == 3:
+                pg.draw.circle(
+                    sc, BLUE, i.pos, 20)
+                pg.draw.rect(
+                    sc, GREEN,
+                    (i.pos[0] - 10,
+                     i.pos[1] - 10,
+                     20, 20))
+                pg.display.update()
+            elif i.button == 2:
+                sc.fill(WHITE)
+                pg.display.update()
+
+    pg.time.delay(20)
+
+
+
+
+import pygame as pg,sys
+
+WHITE = (255, 255, 255)
+
+BLUE = (0, 0, 225)
+
+sc = pg.display.set_mode((400, 300))
+sc.fill(WHITE)
+pg.display.update()
+
+
+
+while 1:
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
+    pressed = pg.mouse.get_pressed()
+    pos = pg.mouse.get_pos()
+    if pressed[0]:
+        pg.draw.circle(sc, BLUE, pos, 5)
+        pg.display.update()
+    pg.time.delay(20)
+
+
+
+import pygame as pg
+import sys
+pg.init()
+
+WHITE = (255, 255, 255)
+
+BLUE = (0, 0, 225)
+
+sc = pg.display.set_mode((400, 300))
+
+sc.fill(WHITE)
+
+pg.display.update()
+
+pg.mouse.set_visible(False)
+
+
+
+while 1:
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
+    sc.fill(WHITE)
+    if pg.mouse.get_focused():
+        pos = pg.mouse.get_pos()
+        pg.draw.rect(sc , BLUE , ( pos[0] - 10 , pos[1] - 10, 20 , 20 ) )
+
+    pg.display.update()
+
+    pg.time.delay(20)
+
+
+
+import pygame as pg
+
+import sys
+
+W = 400
+
+H = 300
+
+sc = pg.display.set_mode((W, H))
+
+sc.fill((100, 150, 200))
+
+dog_surf = pg.image.load('dog.bmp')
+
+dog_rect = dog_surf.get_rect(bottomright=(W, H))
+
+sc.blit(dog_surf, dog_rect)
+
+pg.display.update()
+
+
+
+while 1:
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            sys.exit()
+    pg.time.delay(20)
+
+
+

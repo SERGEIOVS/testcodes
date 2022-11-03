@@ -1,0 +1,33 @@
+#выводим количество файлов в папке
+import os
+print(os.listdir())
+print(len(os.listdir()))
+вставить в files элемент 5 на 2 позицию списка files
+files.insert(1,5)
+print(files)
+
+
+import os
+list=[]
+folder = 'C:\\123456789\Games\MyPythonGame/персонажи/герой'
+list.append(os.listdir(folder))
+print(list)
+print()
+test1 = list[0][0]
+print(test1)
+
+
+#добавляем файлы из папки в список и выводим нужный файл
+files=[]
+files.append(os.listdir())
+print(files[0][3])
+
+#смотрим содержимое папки
+import os
+print(os.listdir(путь к папке или название папки))
+
+#открываем файл на чтение и  выводим на экран его содержимое
+f = open('text.txt','r')
+line = f.read()
+print(line)
+f.close()

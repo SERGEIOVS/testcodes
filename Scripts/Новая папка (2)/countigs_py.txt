@@ -1,0 +1,20 @@
+Onex1 = 112
+
+Oney1 = 207
+
+Onex2 = 715
+
+Oney2 = 800
+
+meter = 100
+
+mylen=math.sqrt( (Onex2-Onex1)**2 +  (Oney2-Oney1)**2)
+meters = mylen/meter
+print('длина отрезка : ',mylen)
+print('otreskov : ',int(meters))
+print('Расстояние в метрах : ',int(mylen))
+for i in range(int(meter)):
+    i+=meter
+    print( 'x = ',int(meters +int(i)),'y = ', int(meters +int(i)) )
+
+
